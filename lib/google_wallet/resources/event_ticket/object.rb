@@ -89,6 +89,10 @@ module GoogleWallet
           template[:ticketHolderName] = ticket_holder_name if present?(ticket_holder_name)
           template[:ticketNumber] = ticket_number if present?(ticket_number)
 
+          puts "\n\n\n\n\n\n\n\n\n"
+          puts template
+          puts "\n\n\n\n\n\n\n\n\n"
+
           template
         end
       end
