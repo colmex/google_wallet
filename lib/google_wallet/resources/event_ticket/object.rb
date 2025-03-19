@@ -67,6 +67,7 @@ module GoogleWallet
           template = {}
 
           alternateText = qr_code_label.present? ? qr_code_label : qr_code_value
+          puts alternateText
 
           template[:id] = id
           template[:classId] = class_id
