@@ -66,16 +66,13 @@ module GoogleWallet
         def template
           template = {}
 
-          alternateText = qr_code_label.present? ? qr_code_label : qr_code_value
-          puts alternateText
-
           template[:id] = id
           template[:classId] = class_id
           template[:state] = "ACTIVE"
 
           template[:ticketType] = { defaultValue: { language: "en-us", value: ticket_type } } if present?(ticket_type)
           template[:groupingInfo] = { groupingId: grouping_id } if present?(grouping_id)
-          template[:barcode] = { type: "QR_CODE", value: qr_code_value, alternateText: alternateText } if present?(qr_code_value)
+          template[:barcode] = { type: "QR_CODE", value: qr_code_value, alternateText: qr_code_label } if present?(qr_code_value)
           template[:faceValue] = { micros: micros, currencyCode: currency_code } if present?(micros) && present?(currency_code)
 
           template[:seatInfo] = {}
